@@ -4,7 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import { db } from "../firebase";
 import { UserAuth } from "../context/AuthContext";
-// import "../styles/DreamForm.css";
+import "../styles/DreamForm.css";
 
 const DreamForm = () => {
   const navigate = useNavigate();
@@ -83,16 +83,16 @@ const DreamForm = () => {
               </Form.Group>
               <div>
                 <Button
-                  className="submit-dream-btn w-30 mx-auto mt-2"
+                  className="submit-dream-btn w-30 mx-auto mt-2 mr-2"
                   type="submit"
                 >
                   Save
                 </Button>
-                {/* <Link to="/dashboard">
+                <Link to="/home">
                   <Button className="w-30 mx-auto mt-2" type="submit">
                     Cancel
                   </Button>
-                </Link> */}
+                </Link>
               </div>
             </Form>
           </Card.Body>

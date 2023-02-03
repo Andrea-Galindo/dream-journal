@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import NewDream from "./pages/NewDream";
 import Settings from "./pages/Settings";
-import ListDreamsPage from "./pages/ListDreams";
+import ListDreamsPage from "./pages/ListDreamsPage";
 
 function App() {
   return (

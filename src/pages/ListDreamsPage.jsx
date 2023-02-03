@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import ListDreams from "./ListDreams";
+import ListDreams from "../components/ListDreams";
 import { UserAuth } from "../context/AuthContext";
-// import AppNavbar from "./AppNavbar";
+import AppNavbar from "../components/AppNavbar";
 import { db } from "../firebase";
 import {
   where,
@@ -21,10 +21,9 @@ import {
 // import SearchBar from "./SearchBar";
 // import "../styles/Dashboard.css";
 
-const ListDreams = () => {
+const ListDreamsPage = () => {
   const { user } = UserAuth();
   const [dreams, setDreams] = useState([]);
-  const [serachDreams, setSearchDreams] = useState([]);
 
   useEffect(() => {
     const getUserDreams = async () => {
@@ -56,7 +55,7 @@ const ListDreams = () => {
     }
   };
 
-  // update a dream
+  // Update a dream locally 
   const handleUpdate = (
     id,
     newDate,
@@ -68,7 +67,7 @@ const ListDreams = () => {
   ) => {
     setDreams(
       dreams.map((dream) =>
-        dream.id == id
+        dream.id === id
           ? {
               ...dream,
               date: newDate,
@@ -85,15 +84,14 @@ const ListDreams = () => {
 
   return (
     <>
-      {/* <AppNavbar />
+      <AppNavbar />
       <ListDreams
         dreamsData={dreams}
-        searchData={serachDreams}
         onDelete={handleDelete}
         onUpdate={handleUpdate}
-      /> */}
+      /> 
     </>
   );
 };
 
-export default ListDreams;
+export default ListDreamsPage;

@@ -25,7 +25,7 @@ const Dream = ({
             <Card.Body>
               <Card.Title>{title}</Card.Title>
               <Card.Text>{date}</Card.Text>
-              <ViewDream
+              {/* <ViewDream
                 id={id}
                 date={date}
                 title={title}
@@ -34,7 +34,7 @@ const Dream = ({
                 peopleandplaces={peopleandplaces}
                 onUpdate={onUpdate}
                 onDelete={onDelete}
-              />
+              /> */}
             </Card.Body>
           </Card>
         </div>

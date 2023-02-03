@@ -1,5 +1,5 @@
 import React from "react";
-// import AppNavbar from "./AppNavbar";
+import AppNavbar from "../components/AppNavbar";
 import { Container, Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 // import "../styles/Dashboard.css";
@@ -9,7 +9,7 @@ import { LinkContainer } from "react-router-bootstrap";
 const Home = () => {
   return (
     <>
-      {/* <AppNavbar /> */}
+      <AppNavbar />
       <Container className="d-flex align-items-center justify-content-center custom-container">
         <div className="w-100 custom-div" style={{ maxWidth: "500px" }}>
           <Card className="custom-border">

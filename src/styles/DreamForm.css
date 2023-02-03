@@ -1,0 +1,4 @@
+.btn-primary {
+    --bs-btn-bg: black !important;
+    --bs-btn-border-color: black !important;
+}
