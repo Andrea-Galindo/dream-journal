@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import NewDream from "./pages/NewDream";
 import Settings from "./pages/Settings";
-import ListDreams from "./pages/ListDreams";
+import ListDreamsPage from "./pages/ListDreams";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             path="/dreams"
             element={
               <ProtectedRoute>
-                <ListDreams />
+                <ListDreamsPage />
               </ProtectedRoute>
             }
           ></Route>

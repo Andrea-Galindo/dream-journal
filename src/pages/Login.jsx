@@ -18,7 +18,7 @@ const Login = () => {
     setError("");
     try {
       await login(email, password);
-      navigate("/dashboard");
+      navigate("/home");
     } catch (e) {
       setError(e.message);
       if (e.message === "Firebase: Error (auth/user-not-found).") {
