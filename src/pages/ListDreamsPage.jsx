@@ -5,25 +5,20 @@ import AppNavbar from "../components/AppNavbar";
 import { db } from "../firebase";
 import {
   where,
-  setDoc,
-  getDoc,
   getDocs,
   query,
   collection,
-  snapShot,
-  onSnapshot,
-  updateDoc,
   doc,
-  addDoc,
   deleteDoc,
-  QuerySnapshot,
 } from "firebase/firestore";
-// import SearchBar from "./SearchBar";
 // import "../styles/Dashboard.css";
 
 const ListDreamsPage = () => {
   const { user } = UserAuth();
+
   const [dreams, setDreams] = useState([]);
+  const [filteredDreams, setFilteredDreams] = useState([]);
+
 
   useEffect(() => {
     const getUserDreams = async () => {
@@ -55,7 +50,7 @@ const ListDreamsPage = () => {
     }
   };
 
-  // Update a dream locally 
+  // Update a dream locally
   const handleUpdate = (
     id,
     newDate,
@@ -89,7 +84,7 @@ const ListDreamsPage = () => {
         dreamsData={dreams}
         onDelete={handleDelete}
         onUpdate={handleUpdate}
-      /> 
+      />
     </>
   );
 };

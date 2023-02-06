@@ -1,10 +1,9 @@
 import React from "react";
-import AppNavbar from "../components/AppNavbar";
 import { Container, Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-// import "../styles/Dashboard.css";
-// import Logo from "./Logo";
-
+import AppNavbar from "../components/AppNavbar";
+import "../styles/Home.css";
+import diary from "../assets/diary.png";
 
 const Home = () => {
   return (
@@ -21,7 +20,7 @@ const Home = () => {
           <LinkContainer to="/newdream">
             <Button className="new-dream-btn">New Dream</Button>
           </LinkContainer>
-          {/* <Logo /> */}
+          <img className="diary" src={diary}></img>
         </div>
       </Container>
     </>

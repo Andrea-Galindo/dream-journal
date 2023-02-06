@@ -1,0 +1,31 @@
+.no-records {
+    justify-content: center;
+  }
+  
+  .custom-container {
+    margin-top: 7rem !important;
+  }
+  
+  .custom-border {
+    border: none !important;
+  }
+  
+  .custom-body {
+    text-align: center !important;
+  }
+  
+  .custom-div {
+    align-items: center !important;
+    flex-direction: column !important;
+    display: flex !important;
+  }
+  
+  .new-dream-btn {
+    background-color: black !important;
+    border: black !important;
+  }
+  
+.diary {
+    width: 100px;
+    margin-top: 3rem;
+}

@@ -4,8 +4,8 @@ import { LinkContainer } from "react-router-bootstrap";
 import { GrBook } from "react-icons/gr";
 import { RiSettings5Fill } from "react-icons/ri";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
-import { FiSearch } from "react-icons/fi";
-import Header from "./Header";
+import title from "../assets/title.png";
+import "../styles/AppNavbar.css";
 
 const AppNavbar = () => {
   return (
@@ -15,7 +15,7 @@ const AppNavbar = () => {
           <Navbar.Brand className="nav-title">
             <LinkContainer to="/home">
               <Nav.Link>
-                <Header />
+                <img className="title" src={title}></img>
               </Nav.Link>
             </LinkContainer>
           </Navbar.Brand>
