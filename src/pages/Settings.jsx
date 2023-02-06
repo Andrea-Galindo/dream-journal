@@ -13,6 +13,7 @@ const Settings = () => {
   const handleLogout = async () => {
     try {
       await logout();
+      localStorage.removeItem("uid");
       navigate("/");
       console.log("You are logged out");
     } catch (e) {
@@ -37,7 +38,8 @@ const Settings = () => {
           style={{ maxWidth: "400px" }}
         >
           <div className="fw-bold">
-            Reset Password <br /> <p className="fw-light">send an email with reset instructions</p>
+            Reset Password <br />{" "}
+            <p className="fw-light">send an email with reset instructions</p>
           </div>
           <Button className="settings-btn" onClick={handleLogout}>
             Reset
