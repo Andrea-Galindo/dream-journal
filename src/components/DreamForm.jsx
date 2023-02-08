@@ -81,18 +81,18 @@ const DreamForm = () => {
                   onChange={(e) => setFeelings(e.target.value)}
                 />
               </Form.Group>
-              <div>
+              <div className="dream-form-btn">
                 <Button
                   className="submit-dream-btn w-30 mx-auto mt-2 mr-2"
                   type="submit"
                 >
                   Save
                 </Button>
-                <Link to="/home">
+                {/* <Link to="/home">
                   <Button className="w-30 mx-auto mt-2" type="submit">
                     Cancel
                   </Button>
-                </Link>
+                </Link> */}
               </div>
             </Form>
           </Card.Body>

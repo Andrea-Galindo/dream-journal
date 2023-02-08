@@ -45,3 +45,7 @@ body {
   input {
     color: white !important;
   }
+
+  .card {
+    background-color: rgb(35, 38, 46) !important;
+  }

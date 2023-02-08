@@ -1,11 +1,11 @@
 import React from "react";
-// import AppNavbar from "./AppNavbar";
+import AppNavbar from "../components/AppNavbar";
 import DreamForm from "../components/DreamForm";
 
 const NewDream = () => {
   return (
     <>
-      {/* <AppNavbar /> */}
+      <AppNavbar />
       <DreamForm />
     </>
   );

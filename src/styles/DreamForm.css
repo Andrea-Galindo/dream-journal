@@ -1,4 +1,20 @@
 .btn-primary {
-    --bs-btn-bg: black !important;
-    --bs-btn-border-color: black !important;
-}
+    --bs-btn-bg: rgb(51, 57, 72) !important;
+    --bs-btn-border-color: rgb(51, 57, 72) !important;
+    /* rgb(35, 38, 46) !important; */
+  }
+  
+  .dream-form {
+    border-radius: 0 !important;
+    background-color: rgb(35, 38, 46) !important;
+  }
+  
+  input,
+  textarea {
+    color: white !important;
+  }
+  
+  .dream-form-btn {
+      display: flex;
+  }
+
