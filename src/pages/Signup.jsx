@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-// import "../styles/Signup.css";
+import "../styles/Signup.css";
 import { UserAuth } from "../context/AuthContext";
-// import Header from "./Header";
+import Header from "../components/Header";
 
 const Signup = () => {
   // save name to store it in "users" collection. Feature currently not working
@@ -45,9 +45,9 @@ const Signup = () => {
 
   return (
     <>
-      {/* <div className="page-header">
+      <div className="page-header">
         <Header />
-      </div> */}
+      </div>
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "60vh" }}

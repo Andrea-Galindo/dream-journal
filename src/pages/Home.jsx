@@ -3,7 +3,7 @@ import { Container, Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import AppNavbar from "../components/AppNavbar";
 import "../styles/Home.css";
-import diary from "../assets/diary.png";
+
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <AppNavbar />
       <Container className="d-flex align-items-center justify-content-center custom-container">
         <div className="w-100 custom-div" style={{ maxWidth: "500px" }}>
-          <Card className="custom-border">
+          <Card className="custom-card" style={{ backgroundColor: "white" }}>
             <Card.Body className="custom-body">
               Of course it is happening inside your head, but why on earth
               should that mean that it is not real?
@@ -20,7 +20,7 @@ const Home = () => {
           <LinkContainer to="/newdream">
             <Button className="new-dream-btn">New Dream</Button>
           </LinkContainer>
-          <img className="diary" src={diary}></img>
+          {/* <Logo /> */}
         </div>
       </Container>
     </>

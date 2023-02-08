@@ -1,13 +1,9 @@
-/* .navbar-wrapper {
-  padding: 1rem;
-} */
-
 .nav-title {
   justify-content: left !important;
 }
 
 svg {
-  color: black;
+  color: rgb(137, 146, 161) !important;
   height: 1.5em;
   width: 1.5em;
 }
@@ -16,6 +12,8 @@ svg {
   justify-content: space-evenly !important;
 }
 
-.title {
-  width: 200px;
+.navbar-header {
+  display: flex;
+  justify-content: end;
 }
+
