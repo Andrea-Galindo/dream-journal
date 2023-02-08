@@ -2,8 +2,8 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-// import AppNavbar from "./AppNavbar";
-// import "../styles/UserSettings.css";
+import AppNavbar from "../components/AppNavbar";
+import "../styles/Settings.css";
 
 const Settings = () => {
   const { user, logout } = UserAuth();
@@ -22,13 +22,16 @@ const Settings = () => {
   };
   return (
     <>
-      {/* <AppNavbar /> */}
-      <div className="mt-4">
+      <AppNavbar />
+      <div className="settings-container">
         <div
           className="w-100 px-4 d-flex justify-content-between"
           style={{ maxWidth: "400px" }}
         >
-          <p className="text-decoration-underline">{user && user.email}</p>
+          <div className="fw-bold">
+            Account <br /> <p className="fw-light email">{user && user.email}</p>
+          </div>
+          {/* <p className="text-decoration-underline">{user && user.email}</p> */}
           <Button className="settings-btn" onClick={handleLogout}>
             Sign out
           </Button>

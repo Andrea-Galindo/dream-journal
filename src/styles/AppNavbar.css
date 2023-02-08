@@ -15,5 +15,6 @@ svg {
 .navbar-header {
   display: flex;
   justify-content: end;
+  height: 3rem;
 }
 

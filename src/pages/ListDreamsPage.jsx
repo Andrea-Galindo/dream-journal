@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 
 import DreamModal from "../components/DreamModal";
+import "../assets/stars.jpg"
 
 const ListDreamsPage = () => {
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ const ListDreamsPage = () => {
     let result = [];
     console.log(value);
     result = dreams.filter((dream) => {
-      return dream.title.toLowerCase().search(value) !== -1;
+      return dream.peopleandplaces.toLowerCase().search(value) !== -1;
     });
     setFilteredDreams(result);
   };
@@ -112,7 +113,7 @@ const ListDreamsPage = () => {
         <div className="w-100 m-2" style={{ maxWidth: "600px" }}>
           <input
             className="form-control form-input"
-            placeholder="Search by title"
+            placeholder="Search by people and places"
             type="text"
             onChange={(event) => handleSearch(event)}
           />
@@ -148,7 +149,7 @@ const ListDreamsPage = () => {
       </div>
 
       {dreams.length === 0 && (
-        <div className="m-5">You have not yet created dream records</div>
+        <div className="m-5 text-center">You have not yet created dream records</div>
       )}
       {/* {filteredDreams.length > 0 && (
         <ListDreams

@@ -47,6 +47,7 @@ const DreamForm = () => {
                 <Form.Label>Date</Form.Label>
                 <Form.Control
                   type="date"
+                  required
                   onChange={(e) => setDate(e.target.value)}
                 />
               </Form.Group>
@@ -54,6 +55,7 @@ const DreamForm = () => {
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   rows={1}
+                  required
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </Form.Group>
@@ -62,6 +64,7 @@ const DreamForm = () => {
                 <Form.Control
                   as="textarea"
                   rows={3}
+                  required
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </Form.Group>
@@ -70,6 +73,7 @@ const DreamForm = () => {
                 <Form.Control
                   as="textarea"
                   rows={2}
+                  required
                   onChange={(e) => setPeopleAndPlaces(e.target.value)}
                 />
               </Form.Group>

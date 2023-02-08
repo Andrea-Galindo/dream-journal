@@ -1,0 +1,28 @@
+.settings-btn {
+  width: 6rem;
+  height: 3rem;
+  background-color: none !important;
+  border: none !important;
+}
+
+.fw-light,
+.text-decoration-underline {
+  font-size: small;
+  color: rgb(137, 146, 161) !important;
+}
+
+.fw-bold,
+.email {
+  font-size: medium;
+}
+
+.settings-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-top: 4rem !important;
+}
+
+p {
+  font-size: 16px;
+}
