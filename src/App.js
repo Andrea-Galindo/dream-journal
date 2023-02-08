@@ -8,6 +8,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import NewDream from "./pages/NewDream";
 import Settings from "./pages/Settings";
 import ListDreamsPage from "./pages/ListDreamsPage";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/forgot-password" element={<ForgotPassword />}></Route>
           <Route
             path="/home"
             element={

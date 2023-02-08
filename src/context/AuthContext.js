@@ -25,12 +25,12 @@ export const AuthContextProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  // Check for sintax 
+  
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  // Check for sintax
+  
   const updatePassword = (password) => {
     return updatePassword(user, password);
   };
