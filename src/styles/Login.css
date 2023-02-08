@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(35, 38, 46) !important;
+    color: rgb(138, 146, 161) !important;
+  }
+  .custom-bttn {
+    margin-top: 10px;
+    background-color: rgb(51, 57, 72) !important;
+    border: rgb(51, 57, 72) !important;
+  }
+  
+  .page-header {
+    text-align: center;
+    border-bottom: solid 0.5px #c1c1c1;
+    background-color: rgb(39, 45, 59);
+    /* color: rgb(241, 244, 246); */
+    /* padding-top: 0.5em; */
+  }
+  
+  .login-form {
+    border-radius: 0 !important;
+    background-color: rgb(35, 38, 46) !important;
+  }
+  
+  .form {
+    color: rgb(138, 146, 162) !important;
+  }
+  
+  .card-body {
+    color: rgb(138, 146, 161) !important;
+  }
+  
+  .text-center {
+    color: rgb(138, 146, 161);
+  }
+  
+  a {
+    color: white !important;
+  }
+  
+  .form-control {
+    background-color: rgb(39, 45, 59) !important;
+  }
+  
+  input {
+    color: white !important;
+  }

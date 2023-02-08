@@ -8,7 +8,6 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import NewDream from "./pages/NewDream";
 import Settings from "./pages/Settings";
 import ListDreamsPage from "./pages/ListDreamsPage";
-import EditDreamPage from "./pages/EditDreamPage";
 
 function App() {
   return (
@@ -30,14 +29,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <NewDream />
-              </ProtectedRoute>
-            }
-          ></Route>
-           <Route
-            path="/editdream"
-            element={
-              <ProtectedRoute>
-                <EditDreamPage />
               </ProtectedRoute>
             }
           ></Route>

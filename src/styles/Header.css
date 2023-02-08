@@ -1,15 +1,14 @@
 .header-title {
-    width: 220px;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  
-  .custom-navbar {
-    padding: 0 !important;
-  }
-  
-  .nav-title {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  
+  width: 200px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.custom-navbar {
+  padding: 0 !important;
+}
+
+.nav-title {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}

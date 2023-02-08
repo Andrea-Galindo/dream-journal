@@ -3,6 +3,9 @@ import { Modal, Card, Button, Form, Container } from "react-bootstrap";
 import { FaRegEdit } from "react-icons/fa";
 import { db } from "../firebase";
 import { updateDoc, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+
+
 
 function EditDream({
   id,
@@ -13,8 +16,9 @@ function EditDream({
   uid,
   peopleandplaces,
   onUpdate,
-  onDelete
+  onDelete,
 }) {
+ 
   // firebase update doc in collection "dreams"
   const updateDream = async (id) => {
     const dreamDoc = doc(db, "dreams", id);
@@ -27,7 +31,7 @@ function EditDream({
     };
     await updateDoc(dreamDoc, newFields);
   };
-
+  const navigate = useNavigate()
   const [dateRef, setDateRef] = useState(date);
   const [titleRef, setTitleRef] = useState(title);
   const [descriptionRef, setDescriptionRef] = useState(description);
@@ -38,15 +42,20 @@ function EditDream({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleOnDelete = (id) => {
+    onDelete(id);
+    navigate("/dreams");
+  };
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Update 
+        View
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Dream</Modal.Title>
+          <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container className="d-flex align-items-center justify-content-center mt-3">
@@ -56,7 +65,7 @@ function EditDream({
                   <Form
                     onSubmit={(e) => {
                       e.preventDefault();
-                      handleClose()
+                      handleClose();
                       onUpdate(
                         id,
                         dateRef,
@@ -122,6 +131,14 @@ function EditDream({
         <Modal.Footer>
           <button form="edit-dream" variant="primary">
             save
+          </button>
+          <button
+            className="delete-btn"
+            onClick={() => handleOnDelete(id)}
+            form="edit-dream"
+            variant="primary"
+          >
+            delete
           </button>
         </Modal.Footer>
       </Modal>

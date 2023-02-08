@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 // import { FaRegEdit } from "react-icons/fa";
 // import "../styles/Dream.css";
 // import EditDream from "./EditDream";
-import ViewDream from "./ViewDream";
+
+import EditDream from "./EditDream";
 
 const Dream = ({
   id,
@@ -26,7 +27,7 @@ const Dream = ({
             <Card.Body>
               <Card.Title>{title}</Card.Title>
               <Card.Text>{date}</Card.Text>
-              <ViewDream
+              <EditDream
                 id={id}
                 date={date}
                 title={title}
