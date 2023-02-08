@@ -1,11 +1,12 @@
 import React from "react";
 import { Container, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import "../styles/Dream.css";
 // import { AiOutlineDelete } from "react-icons/ai";
 // import { FaRegEdit } from "react-icons/fa";
 // import "../styles/Dream.css";
 // import EditDream from "./EditDream";
-// import ViewDream from "./ViewDream";
+import ViewDream from "./ViewDream";
 
 const Dream = ({
   id,
@@ -25,7 +26,7 @@ const Dream = ({
             <Card.Body>
               <Card.Title>{title}</Card.Title>
               <Card.Text>{date}</Card.Text>
-              {/* <ViewDream
+              <ViewDream
                 id={id}
                 date={date}
                 title={title}
@@ -34,7 +35,7 @@ const Dream = ({
                 peopleandplaces={peopleandplaces}
                 onUpdate={onUpdate}
                 onDelete={onDelete}
-              /> */}
+              />
             </Card.Body>
           </Card>
         </div>

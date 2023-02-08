@@ -14,30 +14,27 @@ import {
 // import "../styles/Dashboard.css";
 
 const ListDreamsPage = () => {
-  const { user } = UserAuth();
-
+  const uid = localStorage.getItem("uid");
   const [dreams, setDreams] = useState([]);
   const [filteredDreams, setFilteredDreams] = useState([]);
 
 
   useEffect(() => {
     const getUserDreams = async () => {
-      console.log(user.uid);
-      if (user.uid !== undefined) {
-        // find a way to get the uid immediatly
-        const dreamsList = [];
-        // query to get only the documents that match logged in user id
-        const q = query(collection(db, "dreams"), where("uid", "==", user.uid));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          dreamsList.push({ ...doc.data(), id: doc.id });
-        });
-        setDreams(dreamsList);
-        console.log(dreamsList);
-      }
+      const dreamsList = [];
+      // query to get only the dreams from logged in user
+      const dreamsRef = query(collection(db, "dreams"), where("uid", "==", uid));
+      const querySnapshot = await getDocs(dreamsRef);
+      querySnapshot.forEach((doc) => {
+        dreamsList.push({ ...doc.data(), id: doc.id });
+      });
+      setDreams(dreamsList);
+      setFilteredDreams(dreamsList);
+      // console.log(dreamsList);
     };
     getUserDreams();
   }, []);
+
 
   // Delete dream from firebase
   const handleDelete = async (id) => {
