@@ -1,0 +1,17 @@
+.modal-content {
+    background-color: rgb(35, 38, 46) !important;
+}
+
+.dream-modal-btn {
+    color: #FFFFFF;
+    background-color: #333948;
+    border: #333948;
+    border-radius: 0.375rem;
+    padding: 6px 12px !important;
+    width: 5rem !important;
+    
+}
+
+.modal-footer {
+    justify-content: center !important;
+}

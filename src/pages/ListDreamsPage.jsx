@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ListDreams from "../components/ListDreams";
+import { Link, useNavigate } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import { UserAuth } from "../context/AuthContext";
 import AppNavbar from "../components/AppNavbar";
 import { db } from "../firebase";
@@ -11,30 +13,32 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
-// import "../styles/Dashboard.css";
+
+import DreamModal from "../components/DreamModal";
 
 const ListDreamsPage = () => {
-  const uid = localStorage.getItem("uid");
+  const navigate = useNavigate();
+  const { user } = UserAuth();
   const [dreams, setDreams] = useState([]);
+  const [serachDreams, setSearchDreams] = useState([]);
   const [filteredDreams, setFilteredDreams] = useState([]);
-
 
   useEffect(() => {
     const getUserDreams = async () => {
+      const uid = localStorage.getItem("uid");
       const dreamsList = [];
-      // query to get only the dreams from logged in user
-      const dreamsRef = query(collection(db, "dreams"), where("uid", "==", uid));
-      const querySnapshot = await getDocs(dreamsRef);
+      // query to get only the documents that match logged in user id
+      const q = query(collection(db, "dreams"), where("uid", "==", uid));
+      const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         dreamsList.push({ ...doc.data(), id: doc.id });
       });
       setDreams(dreamsList);
       setFilteredDreams(dreamsList);
-      // console.log(dreamsList);
+      console.log(dreamsList);
     };
     getUserDreams();
-  }, []);
-
+  }, [setDreams]);
 
   // Delete dream from firebase
   const handleDelete = async (id) => {
@@ -42,12 +46,14 @@ const ListDreamsPage = () => {
     try {
       await deleteDoc(dreamRef);
       setDreams(dreams.filter((dream) => dream.id !== id));
+      setFilteredDreams(dreams.filter((dream) => dream.id !== id));
+      navigate("/dreams");
     } catch (err) {
       alert(err);
     }
   };
 
-  // Update a dream locally
+  // update a dream locally
   const handleUpdate = (
     id,
     newDate,
@@ -59,7 +65,22 @@ const ListDreamsPage = () => {
   ) => {
     setDreams(
       dreams.map((dream) =>
-        dream.id === id
+        dream.id == id
+          ? {
+              ...dream,
+              date: newDate,
+              title: newTitle,
+              description: newDescription,
+              peopleandplaces: newPeopleandplaces,
+              feelings: newFeelings,
+              uid: uid,
+            }
+          : dream
+      )
+    );
+    setFilteredDreams(
+      dreams.map((dream) =>
+        dream.id == id
           ? {
               ...dream,
               date: newDate,
@@ -74,14 +95,69 @@ const ListDreamsPage = () => {
     );
   };
 
+  const handleSearch = (event) => {
+    let value = event.target.value.toLowerCase();
+    let result = [];
+    console.log(value);
+    result = dreams.filter((dream) => {
+      return dream.title.toLowerCase().search(value) !== -1;
+    });
+    setFilteredDreams(result);
+  };
+
   return (
     <>
       <AppNavbar />
-      <ListDreams
+      <Container className="d-flex justify-content-center mt-3">
+        <div className="w-100 m-2" style={{ maxWidth: "600px" }}>
+          <input
+            className="form-control form-input"
+            placeholder="Search by title"
+            type="text"
+            onChange={(event) => handleSearch(event)}
+          />
+        </div>
+      </Container>
+      <div style={{ padding: 10 }}>
+        {filteredDreams.map((dream) => {
+          return (
+            <li key={dream.id} className="list-unstyled mt-3">
+              <Container className="d-flex align-items-center justify-content-center">
+                <div className="w-100" style={{ maxWidth: "400px" }}>
+                  <Card className="dream-card">
+                    <Card.Body>
+                      <Card.Title>{dream.title}</Card.Title>
+                      <Card.Text>{dream.date}</Card.Text>
+                      <DreamModal
+                        id={dream.id}
+                        date={dream.date}
+                        title={dream.title}
+                        description={dream.description}
+                        feelings={dream.feelings}
+                        peopleandplaces={dream.peopleandplaces}
+                        onUpdate={handleUpdate}
+                        onDelete={handleDelete}
+                      />
+                    </Card.Body>
+                  </Card>
+                </div>
+              </Container>
+            </li>
+          );
+        })}
+      </div>
+
+      {dreams.length === 0 && (
+        <div className="m-5">You have not yet created dream records</div>
+      )}
+      {/* {filteredDreams.length > 0 && (
+        <ListDreams
         dreamsData={dreams}
+        searchData={serachDreams}
         onDelete={handleDelete}
         onUpdate={handleUpdate}
       />
+       )}     */}
     </>
   );
 };
