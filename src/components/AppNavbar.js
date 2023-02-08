@@ -7,37 +7,38 @@ import { RiSettings5Fill } from "react-icons/ri";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { FiHome } from "react-icons/fi";
 
-
 const AppNavbar = () => {
   return (
     <div className="page-header navbar-header">
-    <Navbar className="custom-navbar">
-      <Container>
-        <Nav>
-          <LinkContainer to="/home">
-            <Nav.Link>
-              <FiHome />
-            </Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/newdream">
-            <Nav.Link>
-              <MdOutlineAddCircleOutline />
-            </Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/dreams">
-            <Nav.Link>
-              <FiBook />
-            </Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/settings">
-            <Nav.Link>
-              <RiSettings5Fill />
-            </Nav.Link>
-          </LinkContainer>
-        </Nav>
-      </Container>
-    </Navbar>
-  </div>
+      <Navbar className="custom-navbar">
+        <Container>
+          <Nav>
+            <LinkContainer to="/home">
+              <Nav.Link>
+                <FiHome
+                  className="nav-icon"
+                />
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/newdream">
+              <Nav.Link>
+                <MdOutlineAddCircleOutline className="nav-icon" />
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/dreams">
+              <Nav.Link>
+                <FiBook className="nav-icon" />
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/settings">
+              <Nav.Link>
+                <RiSettings5Fill className="nav-icon" />
+              </Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 

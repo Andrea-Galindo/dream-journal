@@ -3,7 +3,6 @@ import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import "../styles/Login.css";
-// import title from "../assets/title.png"
 import Header from "../components/Header";
 
 const Login = () => {

@@ -4,9 +4,15 @@
 
 svg {
   color: rgb(137, 146, 161) !important;
+  transition: fill 0.2s ease-in-out !important;
   height: 1.5em;
   width: 1.5em;
 }
+
+svg:hover {
+  color: rgb(131, 33, 254)!important;
+}
+  
 
 .container {
   justify-content: space-evenly !important;
@@ -15,6 +21,5 @@ svg {
 .navbar-header {
   display: flex;
   justify-content: end;
-  height: 3rem;
+  height: 3.5rem;
 }
-

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { Container, Card } from "react-bootstrap";
-import { UserAuth } from "../context/AuthContext";
-import AppNavbar from "../components/AppNavbar";
 import { db } from "../firebase";
 import {
   where,
@@ -14,14 +11,13 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
+import AppNavbar from "../components/AppNavbar";
 import DreamModal from "../components/DreamModal";
-import "../assets/stars.jpg"
+
 
 const ListDreamsPage = () => {
   const navigate = useNavigate();
-  const { user } = UserAuth();
   const [dreams, setDreams] = useState([]);
-  const [serachDreams, setSearchDreams] = useState([]);
   const [filteredDreams, setFilteredDreams] = useState([]);
 
   useEffect(() => {
@@ -66,7 +62,7 @@ const ListDreamsPage = () => {
   ) => {
     setDreams(
       dreams.map((dream) =>
-        dream.id == id
+        dream.id === id
           ? {
               ...dream,
               date: newDate,
