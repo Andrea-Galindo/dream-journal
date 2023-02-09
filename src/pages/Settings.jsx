@@ -20,6 +20,10 @@ const Settings = () => {
       console.log(e.message);
     }
   };
+
+  const handleResetPassword = async () => {
+
+  }
   return (
     <>
       <AppNavbar />
@@ -41,10 +45,10 @@ const Settings = () => {
           style={{ maxWidth: "400px" }}
         >
           <div className="fw-bold">
-            Reset Password <br />{" "}
+            Reset Password <br/>{" "}
             <p className="fw-light">send an email with reset instructions</p>
           </div>
-          <Button className="settings-btn" onClick={handleLogout}>
+          <Button className="settings-btn" onClick={handleResetPassword}>
             Reset
           </Button>
         </div>

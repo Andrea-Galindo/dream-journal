@@ -11,7 +11,7 @@ const AppNavbar = () => {
   return (
     <div className="page-header navbar-header">
       <Navbar className="custom-navbar">
-        <Container>
+        <Container className="nav-container">
           <Nav>
             <LinkContainer to="/home">
               <Nav.Link>

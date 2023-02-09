@@ -8,13 +8,9 @@ svg {
   height: 1.5em;
   width: 1.5em;
 }
-
-svg:hover {
-  color: rgb(131, 33, 254)!important;
-}
   
 
-.container {
+.nav-container {
   justify-content: space-evenly !important;
 }
 

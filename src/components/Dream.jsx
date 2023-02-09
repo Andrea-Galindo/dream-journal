@@ -1,13 +1,7 @@
 import React from "react";
-import { Container, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-// import "../styles/Dream.css";
-// import { AiOutlineDelete } from "react-icons/ai";
-// import { FaRegEdit } from "react-icons/fa";
-// import "../styles/Dream.css";
-// import EditDream from "./EditDream";
+import { Container, Card } from "react-bootstrap";
 
-import EditDream from "./EditDream";
+import DreamModal from "./DreamModal";
 
 const Dream = ({
   id,
@@ -22,12 +16,13 @@ const Dream = ({
   return (
     <li className="list-unstyled mt-3">
       <Container className="d-flex align-items-center justify-content-center">
-        <div className="w-100" style={{ maxWidth: "400px" }}>
+        <div>{date}</div>
+        <div className="w-100" style={{ maxWidth: "400px", marginLeft: "1em" }}>
           <Card>
-            <Card.Body>
+            <Card.Body className="d-flex justify-content-between">
               <Card.Title>{title}</Card.Title>
-              <Card.Text>{date}</Card.Text>
-              <EditDream
+              {/* <Card.Text>{date}</Card.Text> */}
+              <DreamModal
                 id={id}
                 date={date}
                 title={title}

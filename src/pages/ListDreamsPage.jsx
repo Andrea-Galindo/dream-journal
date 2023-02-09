@@ -1,41 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { db } from "../firebase";
-import {
-  where,
-  getDocs,
-  query,
-  collection,
-  doc,
-  deleteDoc,
-} from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 
 import AppNavbar from "../components/AppNavbar";
-import DreamModal from "../components/DreamModal";
+import Dream from "../components/Dream";
 
-
-const ListDreamsPage = () => {
+const ListDreamsPage = ({ dreamsData }) => {
   const navigate = useNavigate();
-  const [dreams, setDreams] = useState([]);
-  const [filteredDreams, setFilteredDreams] = useState([]);
+  const [dreams, setDreams] = useState(dreamsData);
+  const [filteredDreams, setFilteredDreams] = useState(dreams);
 
-  useEffect(() => {
-    const getUserDreams = async () => {
-      const uid = localStorage.getItem("uid");
-      const dreamsList = [];
-      // query to get only the documents that match logged in user id
-      const q = query(collection(db, "dreams"), where("uid", "==", uid));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        dreamsList.push({ ...doc.data(), id: doc.id });
-      });
-      setDreams(dreamsList);
-      setFilteredDreams(dreamsList);
-      console.log(dreamsList);
-    };
-    getUserDreams();
-  }, [setDreams]);
+  // useEffect(() => {
+  //   const getUserDreams = async () => {
+  //     const uid = localStorage.getItem("uid");
+  //     const dreamsList = [];
+  //     // query to get only the documents that match logged in user id
+  //     const q = query(collection(db, "dreams"), where("uid", "==", uid));
+  //     const querySnapshot = await getDocs(q);
+  //     querySnapshot.forEach((doc) => {
+  //       dreamsList.push({ ...doc.data(), id: doc.id });
+  //     });
+  //     setDreams(dreamsList);
+  //     setFilteredDreams(dreamsList);
+  //     console.log(dreamsList);
+  //   };
+  //   getUserDreams();
+  // }, []);
 
   // Delete dream from firebase
   const handleDelete = async (id) => {
@@ -118,34 +110,48 @@ const ListDreamsPage = () => {
       <div style={{ padding: 10 }}>
         {filteredDreams.map((dream) => {
           return (
-            <li key={dream.id} className="list-unstyled mt-3">
-              <Container className="d-flex align-items-center justify-content-center">
-                <div className="w-100" style={{ maxWidth: "400px" }}>
-                  <Card className="dream-card">
-                    <Card.Body>
-                      <Card.Title>{dream.title}</Card.Title>
-                      <Card.Text>{dream.date}</Card.Text>
-                      <DreamModal
-                        id={dream.id}
-                        date={dream.date}
-                        title={dream.title}
-                        description={dream.description}
-                        feelings={dream.feelings}
-                        peopleandplaces={dream.peopleandplaces}
-                        onUpdate={handleUpdate}
-                        onDelete={handleDelete}
-                      />
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Container>
-            </li>
+            <Dream
+              key={dream.id}
+              id={dream.id}
+              date={dream.date}
+              title={dream.title}
+              description={dream.description}
+              feelings={dream.feelings}
+              peopleandplaces={dream.peopleandplaces}
+              onUpdate={handleUpdate}
+              onDelete={handleDelete}
+            />
+            // <li key={dream.id} className="list-unstyled mt-3">
+            //   <Container className="d-flex align-items-center justify-content-center">
+            //     <div>{dream.date}</div>
+            //     <div className="w-100" style={{ maxWidth: "400px" }}>
+            //       <Card className="dream-card">
+            //         <Card.Body>
+            //           <Card.Title>{dream.title}</Card.Title>
+            //           {/* <Card.Text>{dream.date}</Card.Text> */}
+            //           <DreamModal
+            // id={dream.id}
+            // date={dream.date}
+            // title={dream.title}
+            // description={dream.description}
+            // feelings={dream.feelings}
+            // peopleandplaces={dream.peopleandplaces}
+            // onUpdate={handleUpdate}
+            // onDelete={handleDelete}
+            //           />
+            //         </Card.Body>
+            //       </Card>
+            //     </div>
+            //   </Container>
+            // </li>
           );
         })}
       </div>
 
       {dreams.length === 0 && (
-        <div className="m-5 text-center">You have not yet created dream records</div>
+        <div className="m-5 text-center">
+          You have not yet created dream records
+        </div>
       )}
       {/* {filteredDreams.length > 0 && (
         <ListDreams
