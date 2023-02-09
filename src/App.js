@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
@@ -9,33 +9,8 @@ import NewDream from "./pages/NewDream";
 import Settings from "./pages/Settings";
 import ListDreamsPage from "./pages/ListDreamsPage";
 import ForgotPassword from "./pages/ForgotPassword";
-import { db } from "./firebase";
-import {
-  where,
-  getDocs,
-  query,
-  collection,
-} from "firebase/firestore";
 
 function App() {
-  const [dreams, setDreams] = useState([]);
-  useEffect(() => {
-    const getUserDreams = async () => {
-      const uid = localStorage.getItem("uid");
-      const dreamsList = [];
-      // query to get only the documents that match logged in user id
-      const q = query(collection(db, "dreams"), where("uid", "==", uid));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        dreamsList.push({ ...doc.data(), id: doc.id });
-      });
-      setDreams(dreamsList);
-    
-      console.log(dreamsList);
-    };
-    getUserDreams();
-  }, []);
-
   return (
     <div className="App">
       <AuthContextProvider>
@@ -63,7 +38,7 @@ function App() {
             path="/dreams"
             element={
               <ProtectedRoute>
-                <ListDreamsPage dreamsData={dreams} />
+                <ListDreamsPage />
               </ProtectedRoute>
             }
           ></Route>

@@ -5,8 +5,6 @@ import { db } from "../firebase";
 import { updateDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
-
-
 function EditDream({
   id,
   date,
@@ -18,7 +16,6 @@ function EditDream({
   onUpdate,
   onDelete,
 }) {
- 
   // firebase update doc in collection "dreams"
   const updateDream = async (id) => {
     const dreamDoc = doc(db, "dreams", id);
@@ -31,7 +28,7 @@ function EditDream({
     };
     await updateDoc(dreamDoc, newFields);
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [dateRef, setDateRef] = useState(date);
   const [titleRef, setTitleRef] = useState(title);
   const [descriptionRef, setDescriptionRef] = useState(description);
@@ -90,6 +87,7 @@ function EditDream({
                     <Form.Group id="title" className="mt-2">
                       <Form.Label>Title</Form.Label>
                       <Form.Control
+                        maxLength="38"
                         value={titleRef}
                         rows={1}
                         onChange={(e) => setTitleRef(e.target.value)}

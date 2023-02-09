@@ -1,35 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { db } from "../firebase";
-import { doc, deleteDoc } from "firebase/firestore";
+import {
+  where,
+  getDocs,
+  query,
+  collection,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 
 import AppNavbar from "../components/AppNavbar";
 import Dream from "../components/Dream";
 
-const ListDreamsPage = ({ dreamsData }) => {
+const ListDreamsPage = () => {
   const navigate = useNavigate();
-  const [dreams, setDreams] = useState(dreamsData);
-  const [filteredDreams, setFilteredDreams] = useState(dreams);
+  const [dreams, setDreams] = useState([]);
+  const [filteredDreams, setFilteredDreams] = useState([]);
 
-  // useEffect(() => {
-  //   const getUserDreams = async () => {
-  //     const uid = localStorage.getItem("uid");
-  //     const dreamsList = [];
-  //     // query to get only the documents that match logged in user id
-  //     const q = query(collection(db, "dreams"), where("uid", "==", uid));
-  //     const querySnapshot = await getDocs(q);
-  //     querySnapshot.forEach((doc) => {
-  //       dreamsList.push({ ...doc.data(), id: doc.id });
-  //     });
-  //     setDreams(dreamsList);
-  //     setFilteredDreams(dreamsList);
-  //     console.log(dreamsList);
-  //   };
-  //   getUserDreams();
-  // }, []);
+  useEffect(() => {
+    const getUserDreams = async () => {
+      const uid = localStorage.getItem("uid");
+      const dreamsList = [];
+      // query to get only the documents that match logged in user id
+      const q = query(collection(db, "dreams"), where("uid", "==", uid));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        dreamsList.push({ ...doc.data(), id: doc.id });
+      });
+      setDreams(dreamsList);
+      setFilteredDreams(dreamsList);
+      console.log(dreamsList);
+    };
+    getUserDreams();
+  }, [setDreams]);
 
-  // Delete dream from firebase
   const handleDelete = async (id) => {
     const dreamRef = doc(db, "dreams", id);
     try {
@@ -42,7 +48,6 @@ const ListDreamsPage = ({ dreamsData }) => {
     }
   };
 
-  // update a dream locally
   const handleUpdate = (
     id,
     newDate,
@@ -69,7 +74,7 @@ const ListDreamsPage = ({ dreamsData }) => {
     );
     setFilteredDreams(
       dreams.map((dream) =>
-        dream.id == id
+        dream.id === id
           ? {
               ...dream,
               date: newDate,
@@ -121,29 +126,6 @@ const ListDreamsPage = ({ dreamsData }) => {
               onUpdate={handleUpdate}
               onDelete={handleDelete}
             />
-            // <li key={dream.id} className="list-unstyled mt-3">
-            //   <Container className="d-flex align-items-center justify-content-center">
-            //     <div>{dream.date}</div>
-            //     <div className="w-100" style={{ maxWidth: "400px" }}>
-            //       <Card className="dream-card">
-            //         <Card.Body>
-            //           <Card.Title>{dream.title}</Card.Title>
-            //           {/* <Card.Text>{dream.date}</Card.Text> */}
-            //           <DreamModal
-            // id={dream.id}
-            // date={dream.date}
-            // title={dream.title}
-            // description={dream.description}
-            // feelings={dream.feelings}
-            // peopleandplaces={dream.peopleandplaces}
-            // onUpdate={handleUpdate}
-            // onDelete={handleDelete}
-            //           />
-            //         </Card.Body>
-            //       </Card>
-            //     </div>
-            //   </Container>
-            // </li>
           );
         })}
       </div>

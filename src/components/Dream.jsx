@@ -17,11 +17,13 @@ const Dream = ({
     <li className="list-unstyled mt-3">
       <Container className="d-flex align-items-center justify-content-center">
         <div>{date}</div>
-        <div className="w-100" style={{ maxWidth: "400px", marginLeft: "1em" }}>
+        <div
+          className="w-100"
+          style={{ maxWidth: "350px", marginLeft: ".5em" }}
+        >
           <Card>
-            <Card.Body className="d-flex justify-content-between">
-              <Card.Title>{title}</Card.Title>
-              {/* <Card.Text>{date}</Card.Text> */}
+            <Card.Body className="d-flex align-items-center justify-content-between">
+              <Card.Title>{title.substring(0, 23)}</Card.Title>
               <DreamModal
                 id={id}
                 date={date}

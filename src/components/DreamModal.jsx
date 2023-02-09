@@ -49,7 +49,7 @@ function DreamModal({
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        View
+        view
       </Button>
 
       <Modal show={show} onHide={handleClose}>

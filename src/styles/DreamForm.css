@@ -16,5 +16,19 @@
   
   .dream-form-btn {
       display: flex;
+      
   }
 
+  .submit-dream-btn {
+    color: #FFFFFF;
+    background-color: #333948;
+    border: #333948;
+    border-radius: 0.375rem;
+    padding: 6px 12px !important;
+    width: 5rem !important;
+    
+}
+
+.submit-dream-btn:hover {
+  color: #FFFFFF;
+}

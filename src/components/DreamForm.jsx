@@ -54,6 +54,7 @@ const DreamForm = () => {
               <Form.Group id="title" className="mt-2">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
+                  maxLength="38"
                   rows={1}
                   required
                   onChange={(e) => setTitle(e.target.value)}
@@ -86,17 +87,12 @@ const DreamForm = () => {
                 />
               </Form.Group>
               <div className="dream-form-btn">
-                <Button
+                <button
                   className="submit-dream-btn w-30 mx-auto mt-2 mr-2"
                   type="submit"
                 >
-                  Save
-                </Button>
-                {/* <Link to="/home">
-                  <Button className="w-30 mx-auto mt-2" type="submit">
-                    Cancel
-                  </Button>
-                </Link> */}
+                  save
+                </button>
               </div>
             </Form>
           </Card.Body>

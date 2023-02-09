@@ -6,7 +6,7 @@ import { Container, Card } from "react-bootstrap";
 import DreamModal from "./DreamModal";
 
 const ListDreams = ({ dreamsData, onDelete, onUpdate, onSearch }) => {
-  const [dreams, setDreams] = useState(dreamsData)
+  const [dreams, setDreams] = useState(dreamsData);
   const [filteredDreams, setFilteredDreams] = useState(dreams);
 
   return (
@@ -24,34 +24,47 @@ const ListDreams = ({ dreamsData, onDelete, onUpdate, onSearch }) => {
       <div style={{ padding: 10 }}>
         {filteredDreams.map((dream) => {
           return (
-            <li key={dream.id} className="list-unstyled mt-3">
-              <Container className="d-flex align-items-center justify-content-center">
-                <div className="w-100" style={{ maxWidth: "400px" }}>
-                  <Card className="dream-card">
-                    <Card.Body>
-                      <Card.Title>{dream.title}</Card.Title>
-                      <Card.Text>{dream.date}</Card.Text>
-                      <DreamModal
-                        id={dream.id}
-                        date={dream.date}
-                        title={dream.title}
-                        description={dream.description}
-                        feelings={dream.feelings}
-                        peopleandplaces={dream.peopleandplaces}
-                        onUpdate={onUpdate}
-                        onDelete={onDelete}
-                      />
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Container>
-            </li>
+            <Dream
+              key={dream.id}
+              id={dream.id}
+              date={dream.date}
+              title={dream.title}
+              description={dream.description}
+              feelings={dream.feelings}
+              peopleandplaces={dream.peopleandplaces}
+              onUpdate={onUpdate}
+              onDelete={onDelete}
+            />
+            // <li key={dream.id} className="list-unstyled mt-3">
+            //   <Container className="d-flex align-items-center justify-content-center">
+            //     <div className="w-100" style={{ maxWidth: "400px" }}>
+            //       <Card className="dream-card">
+            //         <Card.Body>
+            //           <Card.Title>{dream.title}</Card.Title>
+            //           <Card.Text>{dream.date}</Card.Text>
+            //           <DreamModal
+            // id={dream.id}
+            // date={dream.date}
+            // title={dream.title}
+            // description={dream.description}
+            // feelings={dream.feelings}
+            // peopleandplaces={dream.peopleandplaces}
+            // onUpdate={onUpdate}
+            // onDelete={onDelete}
+            //           />
+            //         </Card.Body>
+            //       </Card>
+            //     </div>
+            //   </Container>
+            // </li>
           );
         })}
       </div>
 
       {dreams.length === 0 && (
-        <div className="m-5 text-center">You have not yet created dream records</div>
+        <div className="m-5 text-center">
+          You have not yet created dream records
+        </div>
       )}
       {/* {filteredDreams.length > 0 && (
         <ListDreams
