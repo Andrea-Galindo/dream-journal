@@ -13,6 +13,7 @@ import {
 
 import AppNavbar from "../components/AppNavbar";
 import Dream from "../components/Dream";
+import "../styles/ListDreamsPage.css";
 
 const ListDreamsPage = () => {
   const navigate = useNavigate();
@@ -100,12 +101,12 @@ const ListDreamsPage = () => {
   };
 
   return (
-    <>
+    <div className="dreams-page">
       <AppNavbar />
       <Container className="d-flex justify-content-center mt-3">
         <div className="w-100 m-2" style={{ maxWidth: "500px" }}>
           <input
-            className="form-control form-input"
+            className="form-control form-search-input"
             placeholder="Search by people and places"
             type="text"
             onChange={(event) => handleSearch(event)}
@@ -143,7 +144,7 @@ const ListDreamsPage = () => {
         onUpdate={handleUpdate}
       />
        )}     */}
-    </>
+    </div>
   );
 };
 

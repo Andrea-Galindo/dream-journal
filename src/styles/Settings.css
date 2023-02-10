@@ -1,3 +1,8 @@
+.settings-page {
+  background-color: rgb(93, 42, 66);
+  height: 100vh;
+  color: rgb(250, 249, 246);
+}
 .settings-btn {
   width: 6rem;
   height: 3rem;
@@ -7,8 +12,8 @@
 
 .fw-light,
 .text-decoration-underline {
-  font-size: small;
-  color: rgb(137, 146, 161) !important;
+  font-size: medium;
+  color: rgb(250, 249, 246) !important;
 }
 
 .fw-bold,

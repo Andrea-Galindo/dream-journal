@@ -4,7 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import AppNavbar from "../components/AppNavbar";
 import "../styles/Home.css";
 import quotes from "../data/quotes.json";
-import { RiDoubleQuotesL } from "react-icons/ri";
+
 
 const Home = () => {
   function getRandomQuote() {
@@ -16,7 +16,7 @@ const Home = () => {
   const user = localStorage.getItem("user");
 
   return (
-    <>
+    <div className="home-page">
       <AppNavbar />
       <Container className="d-flex align-items-center justify-content-center custom-container">
         <div className="w-100 custom-div" style={{ maxWidth: "500px" }}>
@@ -27,12 +27,7 @@ const Home = () => {
               border: "rgb(35, 38, 46",
             }}
           >
-            <Card.Body className="custom-body mb-4">
-              <div>
-                THIS DREAM JOURNAL BELONGS TO: <br />
-                {user}
-              </div>
-            </Card.Body>
+            <Card.Body className="custom-body mb-4"></Card.Body>
           </Card>
           <LinkContainer to="/newdream">
             <Button className="new-dream-btn">New Dream</Button>
@@ -40,7 +35,7 @@ const Home = () => {
           {/* <Logo /> */}
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 

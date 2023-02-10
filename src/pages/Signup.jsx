@@ -52,9 +52,9 @@ const Signup = () => {
   };
 
   return (
-    <>
+    <div className="welcome-page">
       <div className="page-header">
-        <Header />
+        {/* <Header /> */}
       </div>
       <Container
         className="d-flex align-items-center justify-content-center"
@@ -97,7 +97,7 @@ const Signup = () => {
                     onChange={(e) => setPasswordConfirm(e.target.value)}
                   />
                 </Form.Group>
-                <Button className="w-100 custom-bttn" type="submit">
+                <Button className="w-100 custom-btn" type="submit">
                   Sign Up
                 </Button>
               </Form>
@@ -108,7 +108,7 @@ const Signup = () => {
           </div>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 
