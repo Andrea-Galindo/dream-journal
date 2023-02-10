@@ -30,6 +30,12 @@ const Signup = () => {
         setCurrentUserId(credentials.user.uid);
         console.log(currentUserId);
       });
+      await addDoc(collection(db, "users"), {
+        uid: currentUserId,
+        name: name,
+        email: email,
+      });
+      localStorage.setItem("user", name);
       navigate("/home");
       // console.log(email, password);
     } catch (e) {
