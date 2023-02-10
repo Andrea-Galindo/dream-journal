@@ -6,12 +6,14 @@ import { FiBook } from "react-icons/fi";
 import { RiSettings5Fill } from "react-icons/ri";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { FiHome } from "react-icons/fi";
+import Header from "./Header";
 
 const AppNavbar = () => {
   return (
     <div className="page-header navbar-header">
       <Navbar className="custom-navbar">
         <Container className="nav-container">
+        <Navbar.Brand><Header style={{ maxWidth: "150px"}}/></Navbar.Brand>
           <Nav>
             <LinkContainer to="/home">
               <Nav.Link>
