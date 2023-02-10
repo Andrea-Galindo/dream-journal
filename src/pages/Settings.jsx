@@ -25,7 +25,7 @@ const Settings = () => {
 
   }
   return (
-    <>
+    <div className="settings-page">
       <AppNavbar />
       <div className="settings-container">
         <div
@@ -53,7 +53,7 @@ const Settings = () => {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

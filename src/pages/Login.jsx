@@ -36,9 +36,9 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="welcome-page">
       <div className="page-header">
-        <Header />
+        {/* <Header /> */}
       </div>
       <Container
         className="d-flex align-items-center justify-content-center"
@@ -64,7 +64,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </Form.Group>
-                <Button className="w-100 custom-bttn" type="submit">
+                <Button className="w-100 custom-btn" type="submit">
                   Log In
                 </Button>
               </Form>
@@ -78,7 +78,7 @@ const Login = () => {
           </div>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 

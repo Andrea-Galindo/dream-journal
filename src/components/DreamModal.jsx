@@ -5,6 +5,7 @@ import { db } from "../firebase";
 import { updateDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import "../styles/DreamModal.css";
+import { IoIosArrowDown } from "react-icons/io";
 
 function DreamModal({
   id,
@@ -48,9 +49,9 @@ function DreamModal({
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        view
-      </Button>
+      <button className="modal-open" onClick={handleShow}>
+      <IoIosArrowDown />
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

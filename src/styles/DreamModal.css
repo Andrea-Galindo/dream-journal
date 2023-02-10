@@ -1,17 +1,22 @@
 .modal-content {
-    background-color: rgb(35, 38, 46) !important;
+  background-color: rgb(93, 42, 66) !important;
+  color: rgb(250, 249, 246) !important;
 }
 
 .dream-modal-btn {
-    color: #FFFFFF;
-    background-color: #333948;
-    border: #333948;
-    border-radius: 0.375rem;
-    padding: 6px 12px !important;
-    width: 5rem !important;
-    
+  color: #ffffff;
+  background-color: rgba(196, 194, 252, 0.8) !important;
+  border: rgba(196, 194, 252, 0.8) !important;
+  border-radius: 0.375rem;
+  padding: 6px 12px !important;
+  width: 5rem !important;
 }
 
 .modal-footer {
-    justify-content: center !important;
+  justify-content: center !important;
+}
+
+.modal-open {
+  background-color: rgb(93, 42, 66);
+  border: rgb(93, 42, 66);
 }

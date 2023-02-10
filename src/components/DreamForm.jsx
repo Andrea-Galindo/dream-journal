@@ -54,7 +54,7 @@ const DreamForm = () => {
               <Form.Group id="title" className="mt-2">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
-                  maxLength="38"
+                  maxength="38"
                   rows={1}
                   required
                   onChange={(e) => setTitle(e.target.value)}
