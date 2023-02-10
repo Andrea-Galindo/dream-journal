@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Signup.css";
 import { UserAuth } from "../context/AuthContext";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import Header from "../components/Header";
 
 const Signup = () => {

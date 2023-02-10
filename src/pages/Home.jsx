@@ -13,6 +13,7 @@ const Home = () => {
   }
 
   const todayQuote = getRandomQuote();
+  const user = localStorage.getItem("user");
 
   return (
     <>
@@ -27,26 +28,10 @@ const Home = () => {
             }}
           >
             <Card.Body className="custom-body mb-4">
-              <RiDoubleQuotesL
-                className="mb-2"
-                style={{ color: "rgb(137, 146, 161)" }}
-              />
-              <blockquote className="blockquote mb-0">
-                <p>
-                 {todayQuote.quote}
-                </p>
-                <footer className="blockquote-footer">
-                  {todayQuote.author}
-                </footer>
-              </blockquote>
-              {/* <p style={{ fontSize: "14px" }}>
-                {" "}
-                {todayQuote.quote} <br />
-                <span style={{ fontSize: "12px" }}>-{todayQuote.author}</span>
-              </p> */}
-              {/* <span style={{fontSize: "12px"}} >-{todayQuote.author}</span> */}
-              {/* Of course it is happening inside your head, but why on earth
-              should that mean that it is not real? */}
+              <div>
+                THIS DREAM JOURNAL BELONGS TO: <br />
+                {user}
+              </div>
             </Card.Body>
           </Card>
           <LinkContainer to="/newdream">
