@@ -104,7 +104,7 @@ const ListDreamsPage = () => {
     <div className="dreams-page">
       <AppNavbar />
       <Container className="d-flex justify-content-center mt-3">
-        <div className="w-100 m-2" style={{ maxWidth: "500px" }}>
+        <div className="w-100 m-2" style={{ maxWidth: "600px" }}>
           <input
             className="form-control form-search-input"
             placeholder="Search by people and places"

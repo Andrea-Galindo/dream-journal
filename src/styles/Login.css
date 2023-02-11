@@ -14,8 +14,8 @@
 .custom-btn,
 .btn-primary {
   margin-top: 10px;
-  background-color: rgba(196, 194, 252, 0.8) !important;
-  border: rgba(196, 194, 252, 0.8) !important;
+  background-color: rgb(143, 61, 99) !important;
+  border: rgb(143, 61, 99) !important;
 }
 
 .page-header {
@@ -27,7 +27,7 @@
 }
 
 .text-center {
-  color: rgb(138, 146, 161);
+  color:  rgba(250, 249, 246, .5)
 }
 
 a {

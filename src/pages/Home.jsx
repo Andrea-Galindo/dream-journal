@@ -7,12 +7,6 @@ import quotes from "../data/quotes.json";
 
 
 const Home = () => {
-  function getRandomQuote() {
-    const quote = quotes[(quotes.length * Math.random()) << 0];
-    return quote;
-  }
-
-  const todayQuote = getRandomQuote();
   const user = localStorage.getItem("user");
 
   return (
@@ -27,10 +21,12 @@ const Home = () => {
               border: "rgb(35, 38, 46",
             }}
           >
-            <Card.Body className="custom-body mb-4"></Card.Body>
+            <Card.Body className="custom-body mb-4">
+              <div style={{fontFamily: "times", color: "rgb(230, 214, 176"}}>THIS JOURNAL BELONGS TO: <br/>{user}</div>
+            </Card.Body>
           </Card>
           <LinkContainer to="/newdream">
-            <Button className="new-dream-btn">New Dream</Button>
+            <Button className="new-dream-btn">create</Button>
           </LinkContainer>
           {/* <Logo /> */}
         </div>

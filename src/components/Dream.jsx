@@ -23,7 +23,7 @@ const Dream = ({
           <Card>
             <Card.Body className="d-flex align-items-center justify-content-between">
               <div>
-                <div>{date}</div>
+                <div className="small">{date}</div>
                 <Card.Title>{title.substring(0, 23)}</Card.Title>
               </div>
               <DreamModal

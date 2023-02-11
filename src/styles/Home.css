@@ -9,12 +9,12 @@
 }
 
 .custom-container {
-  margin-top: 7rem !important;
+  margin-top: 15rem !important;
 }
 
 .custom-body {
   text-align: center !important;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .custom-div {
@@ -24,7 +24,7 @@
 }
 
 .new-dream-btn {
-  background-color: rgba(196, 194, 252, 0.8) !important;
-  border: rgba(196, 194, 252, 0.8) !important;
-  width: 10rem;
+  background-color: rgb(143, 61, 99) !important;
+  border: rgb(143, 61, 99) !important;
+  width: 18rem;
 }

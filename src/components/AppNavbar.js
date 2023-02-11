@@ -13,7 +13,7 @@ const AppNavbar = () => {
     <div className="page-header navbar-header">
       <Navbar className="custom-navbar">
         <Container className="nav-container">
-        <Navbar.Brand><Header style={{ maxWidth: "150px"}}/></Navbar.Brand>
+        <Navbar.Brand><div style={{fontFamily: "times", fontSize: "25px", color: "rgb(230, 214, 176"}}>Dream Journal</div></Navbar.Brand>
           <Nav>
             <LinkContainer to="/home">
               <Nav.Link>

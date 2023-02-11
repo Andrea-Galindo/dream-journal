@@ -7,3 +7,11 @@
 .form-search-input {
   color: white !important;
 }
+
+input.form-search-input::placeholder {
+  color: rgba(250, 249, 246, .5);
+}
+
+.no-records {
+  color: rgba(250, 249, 246, .5) !important
+}

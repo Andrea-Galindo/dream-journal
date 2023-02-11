@@ -41,12 +41,12 @@ const Settings = () => {
           </Button>
         </div>
         <div
-          className="w-100 px-4 pt-3 d-flex justify-content-between"
+          className="w-100 px-4 pt-3 d-flex justify-content-between align-center"
           style={{ maxWidth: "400px" }}
         >
           <div className="fw-bold">
             Reset Password <br/>{" "}
-            <p className="fw-light">send an email with reset instructions</p>
+            {/* <p className="fw-light">send an email with reset instructions</p> */}
           </div>
           <Button className="settings-btn" onClick={handleResetPassword}>
             Reset

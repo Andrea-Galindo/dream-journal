@@ -37,7 +37,9 @@ const ListDreams = ({ dreamsData, onDelete, onUpdate, onSearch }) => {
       </div>
 
       {dreams.length === 0 && (
-        <div className="m-5 text-center">
+        <div
+          className="m-5 text-center no-records"
+        >
           You have not yet created dream records
         </div>
       )}
