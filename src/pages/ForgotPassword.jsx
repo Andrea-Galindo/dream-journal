@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
-import { Button, Form, Card, Alert, Container, error } from "react-bootstrap";
+import { Button, Form, Card, Alert, Container } from "react-bootstrap";
 import Header from "../components/Header";
 
 const ForgotPassword = () => {

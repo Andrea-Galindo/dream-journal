@@ -6,6 +6,7 @@ import { UserAuth } from "../context/AuthContext";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import Header from "../components/Header";
+import sun from "../assets/sun.png";
 
 const Signup = () => {
   // save name to store it in "users" collection. Feature currently not working
@@ -54,11 +55,12 @@ const Signup = () => {
   return (
     <div className="welcome-page">
       <div className="page-header">
-        {/* <Header /> */}
+        <Header />
+        <img src={sun} style={{width: "100px"}}/>
       </div>
       <Container
         className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "60vh" }}
+        style={{ minHeight: "50vh" }}
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>

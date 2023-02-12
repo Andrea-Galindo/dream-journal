@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Card } from "react-bootstrap";
-
 import DreamModal from "./DreamModal";
 
 const Dream = ({

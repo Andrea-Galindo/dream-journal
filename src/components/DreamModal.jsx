@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Modal, Card, Button, Form, Container } from "react-bootstrap";
-import { FaRegEdit } from "react-icons/fa";
+import { Modal, Card, Form, Container } from "react-bootstrap";
 import { db } from "../firebase";
 import { updateDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import "../styles/DreamModal.css";
 import { IoIosArrowDown } from "react-icons/io";
+import "../styles/DreamModal.css";
 
 function DreamModal({
   id,
@@ -18,7 +17,7 @@ function DreamModal({
   onUpdate,
   onDelete,
 }) {
-  // firebase update doc in collection "dreams"
+  // Update doc in collection "dreams"
   const updateDream = async (id) => {
     const dreamDoc = doc(db, "dreams", id);
     const newFields = {

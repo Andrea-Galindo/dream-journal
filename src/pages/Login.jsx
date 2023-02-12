@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import "../styles/Login.css";
 import Header from "../components/Header";
+import sun from "../assets/sun.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,8 +19,7 @@ const Login = () => {
     setError("");
     try {
       await login(email, password);
-      // add cache function to store data  about the user 
-
+      // add cache function to store data  about the user
       navigate("/home");
     } catch (e) {
       setError(e.message);
@@ -38,11 +38,12 @@ const Login = () => {
   return (
     <div className="welcome-page">
       <div className="page-header">
-        {/* <Header /> */}
+        <Header />
+        <img src={sun} style={{width: "100px"}}/>
       </div>
       <Container
         className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "60vh" }}
+        style={{ minHeight: "50vh" }}
       >
         <div className="w-100" style={{ maxWidth: "390px" }}>
           <Card className="login-form">

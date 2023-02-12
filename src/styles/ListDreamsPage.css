@@ -1,5 +1,6 @@
 .dreams-page {
   background-color: rgb(93, 42, 66);
+  background-image: url("../assets/stars.png");
   height: 100vh;
   color: rgb(250, 249, 246);
 }

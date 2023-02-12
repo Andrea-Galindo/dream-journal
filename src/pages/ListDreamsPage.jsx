@@ -19,6 +19,7 @@ const ListDreamsPage = () => {
   const navigate = useNavigate();
   const [dreams, setDreams] = useState([]);
   const [filteredDreams, setFilteredDreams] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getUserDreams = async () => {
@@ -32,6 +33,7 @@ const ListDreamsPage = () => {
       });
       setDreams(dreamsList);
       setFilteredDreams(dreamsList);
+      setLoading(false)
       console.log(dreamsList);
     };
     getUserDreams();
@@ -130,20 +132,11 @@ const ListDreamsPage = () => {
           );
         })}
       </div>
-
-      {dreams.length === 0 && (
+      {dreams.length === 0 && loading === false && (
         <div className="m-5 text-center">
           You have not yet created dream records
         </div>
       )}
-      {/* {filteredDreams.length > 0 && (
-        <ListDreams
-        dreamsData={dreams}
-        searchData={serachDreams}
-        onDelete={handleDelete}
-        onUpdate={handleUpdate}
-      />
-       )}     */}
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Card, Button, Form, Container } from "react-bootstrap";
-import { collection, addDoc } from "firebase/firestore";
-import { useNavigate, Link } from "react-router-dom";
 import { db } from "../firebase";
+import { Card, Form, Container } from "react-bootstrap";
+import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import "../styles/DreamForm.css";
 
@@ -16,12 +16,10 @@ const DreamForm = () => {
   const [peopleAndPlaces, setPeopleAndPlaces] = useState("");
   const [feelings, setFeelings] = useState("");
 
-  // Create dream
+  // Add document dream to dreams collection in firebase
   const createDream = async (e) => {
     e.preventDefault(e);
-    // Add dream to collection "dreams"
     await addDoc(collection(db, "dreams"), {
-      // await addDoc(collection(db, "users", user.uid, "dreams"), {
       uid: user.uid,
       date: date,
       title: title,
@@ -56,7 +54,6 @@ const DreamForm = () => {
                 <Form.Control
                   maxength="38"
                   rows={1}
-                  required
                   onChange={(e) => setTitle(e.target.value)}
                 />
               </Form.Group>
@@ -65,7 +62,6 @@ const DreamForm = () => {
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  required
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </Form.Group>
@@ -74,7 +70,6 @@ const DreamForm = () => {
                 <Form.Control
                   as="textarea"
                   rows={2}
-                  required
                   onChange={(e) => setPeopleAndPlaces(e.target.value)}
                 />
               </Form.Group>

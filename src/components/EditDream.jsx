@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal, Card, Button, Form, Container } from "react-bootstrap";
-import { FaRegEdit } from "react-icons/fa";
 import { db } from "../firebase";
 import { updateDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
